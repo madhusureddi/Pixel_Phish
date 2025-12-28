@@ -1,0 +1,65 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --accent: #238636;
+    --danger: #da3633;
+    --text-primary: #c9d1d9;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container { width: 100%; max-width: 600px; text-align: center; }
+
+.highlight { color: var(--accent); }
+
+.scanner-box {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: var(--accent);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.verdict.benign { color: var(--accent); }
+.verdict.phishing, .verdict.malware { color: var(--danger); }
+
+/* Basic Spinner */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--accent);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

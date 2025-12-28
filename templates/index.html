@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel | PhishGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <h1>PIXEL <span class="highlight">PHISHGUARD</span></h1>
+            <p>Advanced AI-Powered Phishing URL Detection</p>
+        </header>
+
+        <main>
+            <div class="scanner-box">
+                <form action="/predict" method="POST" onsubmit="showLoading()">
+                    <input type="text" name="url" placeholder="Enter URL to scan (e.g., https://example.com)" required>
+                    <button type="submit" id="scan-btn">Scan URL</button>
+                </form>
+                
+                <div id="loader" class="loader" style="display:none;"></div>
+
+                {% if result %}
+                <div class="result-card">
+                    <p>Analyzed URL: <strong>{{ url }}</strong></p>
+                    <div class="verdict {{ result|lower }}">
+                        <h3>Verdict: {{ result }}</h3>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if error %}
+                <div class="error-msg">
+                    <p>{{ error }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('scan-btn').innerText = 'Analyzing...';
+        }
+    </script>
+</body>
+</html>
