@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
-import google.generativeai as genai
-import firebase_admin
-from firebase_admin import credentials, firestore
+#import google.generativeai as genai
+#import firebase_admin
+#from firebase_admin import credentials, firestore
 from datetime import datetime
 
 # --- 1. Flask App Initialization (NameError Fix) ---
